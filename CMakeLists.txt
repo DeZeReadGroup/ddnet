@@ -2323,6 +2323,8 @@ if(CLIENT)
   set_src(GAME_CLIENT GLOB_RECURSE src/game/client
     animstate.cpp
     animstate.h
+    chatai.cpp
+    chatai.h
     component.cpp
     component.h
     components/background.cpp

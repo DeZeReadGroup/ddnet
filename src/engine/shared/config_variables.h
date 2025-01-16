@@ -745,6 +745,12 @@ MACRO_CONFIG_INT(GfxDriverIsBlocked, gfx_driver_is_blocked, 0, 0, 1, CFGFLAG_SAV
 
 MACRO_CONFIG_INT(ClVideoRecorderFPS, cl_video_recorder_fps, 60, 1, 1000, CFGFLAG_SAVE | CFGFLAG_CLIENT, "At which FPS the videorecorder should record demos.")
 
+// ChatAI
+MACRO_CONFIG_INT(ClChatAI, cl_chat_ai, 1, 0, 1, CFGFLAG_SAVE | CFGFLAG_CLIENT, "Enable Chat AI")
+MACRO_CONFIG_STR(ClChatAIAPI, cl_chatai_api, 256, "", CFGFLAG_SAVE | CFGFLAG_CLIENT, "The API for Chat AI")
+MACRO_CONFIG_STR(ClChatAIUrl, cl_chatai_url, 256, "", CFGFLAG_SAVE | CFGFLAG_CLIENT, "The Url for Chat AI")
+MACRO_CONFIG_STR(ClChatAIModule, cl_chatai_module, 256, "", CFGFLAG_SAVE | CFGFLAG_CLIENT, "The Module for Chat AI")
+
 /*
  * Add config variables for mods below this comment to avoid merge conflicts.
  */

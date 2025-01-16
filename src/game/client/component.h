@@ -104,6 +104,8 @@ protected:
 	class IUpdater *Updater() const;
 #endif
 
+	class CChatAI *ChatAI() const;
+
 	/**
 	 * Gets the current time.
 	 * @see time_get()

@@ -55,11 +55,13 @@ public:
 
 	// Begin writing a new object
 	void BeginObject();
+	void BeginObject(const char *pAttribute) { WriteAttribute(pAttribute); BeginObject(); }
 	// End current object
 	void EndObject();
 
 	// Begin writing a new array
 	void BeginArray();
+	void BeginArray(const char *pAttribute) { WriteAttribute(pAttribute); BeginArray(); }
 	// End current array
 	void EndArray();
 
@@ -77,6 +79,11 @@ public:
 	void WriteIntValue(int Value);
 	void WriteBoolValue(bool Value);
 	void WriteNullValue();
+
+	void WriteStrValue(const char *pAttribute, const char *pValue) { WriteAttribute(pAttribute); WriteStrValue(pValue); }
+	void WriteIntValue(const char *pAttribute, int Value) { WriteAttribute(pAttribute); WriteIntValue(Value); }
+	void WriteBoolValue(const char *pAttribute, bool Value) { WriteAttribute(pAttribute); WriteBoolValue(Value); }
+	void WriteNullValue(const char *pAttribute) { WriteAttribute(pAttribute); WriteNullValue(); }
 };
 
 /**

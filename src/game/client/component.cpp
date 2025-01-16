@@ -28,6 +28,7 @@ class IUpdater *CComponent::Updater() const
 	return m_pClient->Updater();
 }
 #endif
+class CChatAI *CComponent::ChatAI() const { return m_pClient->ChatAI(); }
 
 int64_t CComponent::time() const
 {

@@ -19,6 +19,7 @@
 #include <engine/storage.h>
 #include <engine/textrender.h>
 #include <engine/updater.h>
+#include "chatai.h"
 
 #include <game/generated/client_data.h>
 #include <game/generated/client_data7.h>
@@ -109,6 +110,7 @@ void CGameClient::OnConsoleInit()
 	m_pUpdater = Kernel()->RequestInterface<IUpdater>();
 #endif
 	m_pHttp = Kernel()->RequestInterface<IHttp>();
+	m_pChatAI = new CChatAI(m_pEngine, m_pHttp);
 
 	// make a list of all the systems, make sure to add them in the correct render order
 	m_vpAll.insert(m_vpAll.end(), {&m_Skins,

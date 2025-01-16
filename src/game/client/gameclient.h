@@ -195,6 +195,7 @@ private:
 	class IUpdater *m_pUpdater;
 #endif
 	class IHttp *m_pHttp;
+	class CChatAI *m_pChatAI;
 
 	CLayers m_Layers;
 	CCollision m_Collision;
@@ -278,6 +279,7 @@ public:
 	{
 		return m_pHttp;
 	}
+	class CChatAI *ChatAI() { return m_pChatAI; }
 
 	int NetobjNumCorrections()
 	{

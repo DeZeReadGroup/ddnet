@@ -12,6 +12,7 @@
 #include <game/generated/protocol7.h>
 
 #include <game/client/animstate.h>
+#include <game/client/chatai.h>
 #include <game/client/components/scoreboard.h>
 #include <game/client/components/skins.h>
 #include <game/client/components/sounds.h>
@@ -541,6 +542,12 @@ void CChat::OnMessage(int MsgType, void *pRawMsg)
 	{
 		CNetMsg_Sv_Chat *pMsg = (CNetMsg_Sv_Chat *)pRawMsg;
 		AddLine(pMsg->m_ClientId, pMsg->m_Team, pMsg->m_pMessage);
+
+		if(pMsg->m_ClientId < 0 || pMsg->m_ClientId >= MAX_CLIENTS || !m_pClient->m_aClients[pMsg->m_ClientId].m_Active)
+			return;
+
+		if(LineShouldHighlight(pMsg->m_pMessage, m_pClient->m_aClients[m_pClient->m_aLocalIds[0]].m_aName))
+			ChatAI()->Send(this, m_pClient->m_aClients[pMsg->m_ClientId].m_aName, pMsg->m_pMessage);
 	}
 	else if(MsgType == NETMSGTYPE_SV_COMMANDINFO)
 	{
